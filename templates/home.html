@@ -1,0 +1,68 @@
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Get A Py!</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <a class="navbar-brand" href="/">Get a py!</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+            aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/admin">Admin</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <a class="btn btn-light" href="/signout">Sign out</a>
+            </form>
+        </div>
+    </nav>
+
+    <div class="alert alert-danger" style="border-radius: 0;" role="alert">
+        <strong>Breaking the fourth wall:</strong> This is an exploitable problem. Please don't use any
+        passwords or information you care about here. Also, the database resets every hour.
+    </div>
+
+    <div class="container">
+        <h1>Hi!</h1>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-warning">
+            {{ message }}
+        </div>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+        <hr />
+        <h2>Your latest order</h2>
+        <!--temp:LatestOrder-->
+        <hr />
+        <h2>Place an order</h2>
+        <form action="/placeOrder" method="post">
+            <div class="form-group">
+                <label for="exampleFormControlTextarea1">Order details</label>
+                <textarea class="form-control" id="orderDetails" name="content" rows="3"></textarea>
+                <small class="form-text text-muted">
+                    You can use HTML formatting to format your order.
+                </small>
+            </div>
+            <button type="submit" class="btn btn-primary mb-2">Submit</button>
+        </form>
+        <hr />
+        Written with love and Python <a href="https://flask.palletsprojects.com/en/1.1.x/">Flask</a>.
+    </div>
+</body>
+
+
+</html>
