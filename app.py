@@ -145,7 +145,7 @@ def admin():
         flash("You must be logged in to reach that page.")
         return redirect("/login")
     elif session["id"] == 1:
-        flash("hackDalton{4dm1n_1s_numb3r_0n3_TIfIZBTBu_}")
+        flash("Not the right flag!")
     else:
         flash("You aren't an admin")
     return redirect("/home")
